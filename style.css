@@ -1,0 +1,707 @@
+```css
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #111111;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    width: 100%;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eeeeee;
+    background: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+
+.logo {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+
+.logo span {
+    font-weight: 900;
+}
+
+
+.header nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+
+.header nav a {
+    text-decoration: none;
+    color: #111111;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+.header nav a:hover {
+    opacity: 0.55;
+}
+
+
+.admin-open {
+    border: none;
+    background: #111111;
+    color: #ffffff;
+    padding: 11px 17px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+
+.admin-open:hover {
+    background: #333333;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 20px;
+    background: #f7f7f7;
+}
+
+
+.hero-content {
+    max-width: 850px;
+}
+
+
+.small-heading {
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+
+.hero h1 {
+    font-size: clamp(45px, 7vw, 82px);
+    line-height: 1.05;
+    letter-spacing: -3px;
+    margin-bottom: 25px;
+}
+
+
+.hero h1 span {
+    color: #666666;
+}
+
+
+.hero-text {
+    max-width: 600px;
+    margin: auto;
+    color: #666666;
+    font-size: 17px;
+}
+
+
+.shop-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 35px;
+    background: #111111;
+    color: #ffffff;
+    padding: 14px 23px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
+.shop-button:hover {
+    background: #333333;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-section {
+    padding: 45px 7% 10px;
+}
+
+
+.search-box {
+    max-width: 650px;
+    margin: auto;
+    position: relative;
+}
+
+
+.search-box i {
+    position: absolute;
+    left: 18px;
+    top: 17px;
+    color: #888888;
+}
+
+
+.search-box input {
+    width: 100%;
+    padding: 15px 20px 15px 48px;
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+    outline: none;
+    font-size: 15px;
+}
+
+
+.search-box input:focus {
+    border-color: #111111;
+}
+
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.products-section,
+.contact-section {
+    padding: 70px 7%;
+}
+
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+
+.section-title p,
+.product-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    font-weight: 800;
+    color: #777777;
+}
+
+
+.section-title h2 {
+    font-size: 38px;
+    margin: 8px 0;
+}
+
+
+.section-title span {
+    color: #777777;
+}
+
+
+/* =========================
+   PRODUCTS GRID
+========================= */
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+
+.product-card {
+    border: 1px solid #eeeeee;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #ffffff;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+
+.product-image {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+    background: #f3f3f3;
+}
+
+
+.product-info {
+    padding: 20px;
+}
+
+
+.product-info h3 {
+    font-size: 20px;
+    margin-bottom: 7px;
+}
+
+
+.product-price,
+.detail-price {
+    font-size: 19px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+
+.product-short {
+    color: #777777;
+    font-size: 14px;
+}
+
+
+.no-products {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    color: #777777;
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 1000;
+}
+
+
+.modal.active {
+    display: flex;
+}
+
+
+.modal-content {
+    width: 100%;
+    max-width: 900px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #ffffff;
+    border-radius: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+}
+
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    z-index: 5;
+    font-size: 17px;
+}
+
+
+.modal-image {
+    min-height: 500px;
+    background: #f5f5f5;
+}
+
+
+.modal-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    object-fit: cover;
+    display: block;
+}
+
+
+.modal-info {
+    padding: 55px 35px 35px;
+}
+
+
+.modal-info h2 {
+    font-size: 34px;
+    line-height: 1.2;
+    margin: 8px 0 15px;
+}
+
+
+.modal-info > p:not(.product-label) {
+    color: #666666;
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   ORDER BOX
+========================= */
+
+.order-box {
+    padding: 20px;
+    border-radius: 12px;
+    background: #f7f7f7;
+}
+
+
+.order-box h3 {
+    margin-bottom: 5px;
+}
+
+
+.order-box p {
+    font-size: 13px;
+    color: #777777;
+    margin-bottom: 15px;
+}
+
+
+.contact-buttons {
+    display: grid;
+    gap: 10px;
+}
+
+
+.contact-btn {
+    border: none;
+    padding: 12px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: 700;
+    background: #111111;
+    color: #ffffff;
+}
+
+
+.contact-btn:hover {
+    opacity: 0.8;
+}
+
+
+.copy-message {
+    color: #222222 !important;
+    font-weight: 600;
+}
+
+
+/* =========================
+   ADMIN MODAL
+========================= */
+
+.admin-content {
+    width: 100%;
+    max-width: 550px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 40px;
+    position: relative;
+}
+
+
+.admin-content h2 {
+    font-size: 32px;
+    margin: 5px 0;
+}
+
+
+.admin-subtitle {
+    color: #777777;
+    margin-bottom: 25px;
+}
+
+
+#productForm {
+    display: flex;
+    flex-direction: column;
+}
+
+
+#productForm label {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 7px;
+    margin-top: 15px;
+}
+
+
+#productForm input,
+#productForm textarea {
+    width: 100%;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    padding: 13px;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+}
+
+
+#productForm input:focus,
+#productForm textarea:focus {
+    border-color: #111111;
+}
+
+
+#productForm input[type="file"] {
+    background: #f7f7f7;
+    cursor: pointer;
+}
+
+
+#productForm textarea {
+    resize: vertical;
+}
+
+
+.image-preview-box {
+    display: none;
+    margin-top: 15px;
+    padding: 12px;
+    background: #f7f7f7;
+    border-radius: 10px;
+}
+
+
+.image-preview-box p {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+
+.image-preview-box img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+
+.save-product {
+    margin-top: 25px;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #111111;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+
+.save-product:hover {
+    background: #333333;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.socials {
+    max-width: 850px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+
+.social {
+    text-decoration: none;
+    color: #111111;
+    border: 1px solid #eeeeee;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: 0.2s;
+}
+
+
+.social:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+
+.social > i {
+    font-size: 28px;
+}
+
+
+.social div {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.social small {
+    color: #777777;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+    padding: 50px 20px;
+    background: #111111;
+    color: #ffffff;
+}
+
+
+.footer-logo {
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-size: 20px;
+}
+
+
+footer p {
+    color: #bbbbbb;
+    margin: 8px 0;
+}
+
+
+footer span {
+    font-size: 12px;
+    color: #777777;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 850px) {
+
+    .header {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+
+    .header nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .socials {
+        grid-template-columns: 1fr;
+    }
+
+
+    .modal-content {
+        grid-template-columns: 1fr;
+    }
+
+
+    .modal-image,
+    .modal-image img {
+        min-height: 300px;
+        height: 300px;
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .hero {
+        min-height: 500px;
+    }
+
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .products-section,
+    .contact-section {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+
+    .admin-content {
+        padding: 30px 20px;
+    }
+
+
+    .modal-info {
+        padding: 45px 20px 25px;
+    }
+
+}
+```

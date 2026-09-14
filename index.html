@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bili Store | Things I Like. Things You'll Love.</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="logo">
+            <span>BILI</span> STORE
+        </div>
+
+        <nav>
+
+            <a href="#home">Home</a>
+
+            <a href="#products">Things</a>
+
+            <a href="#contact">Contact</a>
+
+            <button
+                type="button"
+                class="admin-open"
+                onclick="openAdmin()">
+
+                <i class="fa-solid fa-plus"></i>
+
+                Add Product
+
+            </button>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <p class="small-heading">
+                WELCOME TO BILI STORE
+            </p>
+
+            <h1>
+                Things I Like.
+                <br>
+                <span>Things You'll Love.</span>
+            </h1>
+
+            <p class="hero-text">
+                A collection of things personally selected by Bili.
+                If I like it, it belongs here.
+            </p>
+
+            <a href="#products" class="shop-button">
+
+                Explore My Things
+
+                <i class="fa-solid fa-arrow-down"></i>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SEARCH ================= -->
+
+    <section class="search-section">
+
+        <div class="search-box">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search for a thing..."
+            >
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PRODUCTS ================= -->
+
+    <section class="products-section" id="products">
+
+        <div class="section-title">
+
+            <p>MY COLLECTION</p>
+
+            <h2>
+                Things I Like ❤️
+            </h2>
+
+            <span>
+                Every product here is personally selected by Bili.
+            </span>
+
+        </div>
+
+        <div
+            id="productsGrid"
+            class="products-grid">
+        </div>
+
+    </section>
+
+
+    <!-- ================= PRODUCT MODAL ================= -->
+
+    <div id="productModal" class="modal">
+
+        <div class="modal-content">
+
+            <button
+                type="button"
+                class="close-btn"
+                onclick="closeProduct()">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+
+            <div class="modal-image">
+
+                <img
+                    id="detailImage"
+                    src=""
+                    alt="Product"
+                >
+
+            </div>
+
+
+            <div class="modal-info">
+
+                <p class="product-label">
+                    BILI'S CHOICE ❤️
+                </p>
+
+
+                <h2 id="detailName"></h2>
+
+
+                <div
+                    class="detail-price"
+                    id="detailPrice">
+                </div>
+
+
+                <p id="detailDescription"></p>
+
+
+                <!-- ================= ORDER BOX ================= -->
+
+                <div class="order-box">
+
+                    <h3>
+                        Interested in this thing?
+                    </h3>
+
+                    <p>
+                        Contact me about this exact product.
+                        Product name and link will be included automatically.
+                    </p>
+
+
+                    <!-- ================= CONTACT BUTTONS ================= -->
+
+                    <div class="contact-buttons">
+
+
+                        <!-- INSTAGRAM -->
+
+                        <button
+                            type="button"
+                            onclick="contactInstagram()"
+                            class="contact-btn instagram">
+
+                            <i class="fa-brands fa-instagram"></i>
+
+                            Instagram
+
+                        </button>
+
+
+                        <!-- SNAPCHAT -->
+
+                        <button
+                            type="button"
+                            onclick="contactSnapchat()"
+                            class="contact-btn snapchat">
+
+                            <i class="fa-brands fa-snapchat"></i>
+
+                            Snapchat
+
+                        </button>
+
+
+                        <!-- OUTLOOK -->
+
+                        <button
+                            type="button"
+                            onclick="contactEmail()"
+                            class="contact-btn outlook">
+
+                            <i class="fa-solid fa-envelope"></i>
+
+                            Outlook
+
+                        </button>
+
+
+                        <!-- COPY LINK -->
+
+                        <button
+                            type="button"
+                            onclick="copyProductLink()"
+                            class="contact-btn copy">
+
+                            <i class="fa-solid fa-link"></i>
+
+                            Copy Product Link
+
+                        </button>
+
+
+                        <!-- DELETE PRODUCT -->
+
+                        <button
+                            type="button"
+                            onclick="deleteProduct(selectedProduct.id)"
+                            class="contact-btn delete-product">
+
+                            <i class="fa-solid fa-trash"></i>
+
+                            Delete Product
+
+                        </button>
+
+
+                    </div>
+
+
+                    <!-- COPY MESSAGE -->
+
+                    <p
+                        id="copyMessage"
+                        class="copy-message">
+                    </p>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= ADD PRODUCT MODAL ================= -->
+
+    <div id="adminModal" class="modal">
+
+        <div class="admin-content">
+
+            <button
+                type="button"
+                class="close-btn"
+                onclick="closeAdmin()">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+
+            <p class="product-label">
+                BILI STORE
+            </p>
+
+
+            <h2>
+                Add Your Thing
+            </h2>
+
+
+            <p class="admin-subtitle">
+                Add anything you personally like.
+            </p>
+
+
+            <!-- ================= PRODUCT FORM ================= -->
+
+            <form id="productForm">
+
+
+                <!-- NAME -->
+
+                <label for="productName">
+                    Product Name
+                </label>
+
+                <input
+                    type="text"
+                    id="productName"
+                    placeholder="Example: Classic Black Watch"
+                    required
+                >
+
+
+                <!-- PRICE -->
+
+                <label for="productPrice">
+                    Price
+                </label>
+
+                <input
+                    type="text"
+                    id="productPrice"
+                    placeholder="Example: Rs. 2,500"
+                    required
+                >
+
+
+                <!-- IMAGE -->
+
+                <label for="productImage">
+                    Product Picture
+                </label>
+
+                <input
+                    type="file"
+                    id="productImage"
+                    accept="image/png,image/jpeg,image/webp"
+                    required
+                >
+
+
+                <!-- IMAGE PREVIEW -->
+
+                <div
+                    id="imagePreviewBox"
+                    class="image-preview-box">
+
+                    <p>
+                        Picture Preview
+                    </p>
+
+                    <img
+                        id="imagePreview"
+                        src=""
+                        alt="Image Preview"
+                    >
+
+                </div>
+
+
+                <!-- DESCRIPTION -->
+
+                <label for="productDescription">
+                    Product Characteristics
+                </label>
+
+                <textarea
+                    id="productDescription"
+                    rows="5"
+                    placeholder="Write the things you like about this product..."
+                    required
+                ></textarea>
+
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                    class="save-product">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Add Product
+
+                </button>
+
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section
+        class="contact-section"
+        id="contact">
+
+        <div class="section-title">
+
+            <p>
+                LET'S TALK
+            </p>
+
+            <h2>
+                Want to Know More?
+            </h2>
+
+            <span>
+                Contact Bili about anything you like.
+            </span>
+
+        </div>
+
+
+        <div class="socials">
+
+
+            <!-- INSTAGRAM -->
+
+            <a
+                href="https://instagram.com/bilalabid793"
+                target="_blank"
+                class="social instagram-social">
+
+                <i class="fa-brands fa-instagram"></i>
+
+                <div>
+
+                    <strong>
+                        Instagram
+                    </strong>
+
+                    <small>
+                        @bilalabid793
+                    </small>
+
+                </div>
+
+            </a>
+
+
+            <!-- SNAPCHAT -->
+
+            <a
+                href="https://www.snapchat.com/add/bilal1235abid"
+                target="_blank"
+                class="social snapchat-social">
+
+                <i class="fa-brands fa-snapchat"></i>
+
+                <div>
+
+                    <strong>
+                        Snapchat
+                    </strong>
+
+                    <small>
+                        @bilal1235abid
+                    </small>
+
+                </div>
+
+            </a>
+
+
+            <!-- OUTLOOK -->
+
+            <a
+                href="mailto:bilalabid1235@outlook.com"
+                class="social outlook-social">
+
+                <i class="fa-solid fa-envelope"></i>
+
+                <div>
+
+                    <strong>
+                        Outlook
+                    </strong>
+
+                    <small>
+                        bilalabid1235@outlook.com
+                    </small>
+
+                </div>
+
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            BILI STORE
+        </div>
+
+        <p>
+            Things I Like. Things You'll Love.
+        </p>
+
+        <span>
+            © 2026 Bili Store. All rights reserved.
+        </span>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
