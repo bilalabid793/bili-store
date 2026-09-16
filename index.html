@@ -25,11 +25,17 @@
 
         <nav>
 
-            <a href="#home">Home</a>
+            <a href="#home">
+                Home
+            </a>
 
-            <a href="#products">Things</a>
+            <a href="#products">
+                Things
+            </a>
 
-            <a href="#contact">Contact</a>
+            <a href="#contact">
+                Contact
+            </a>
 
             <button
                 type="button"
@@ -49,32 +55,70 @@
 
     <!-- ================= HERO ================= -->
 
-    <section class="hero" id="home">
+    <section
+        class="hero"
+        id="home">
 
         <div class="hero-content">
 
+
+            <!-- BILI STORE LOGO -->
+
+            <div
+                class="bili-hero-logo"
+                style="text-align:center; margin-bottom:18px;">
+
+                <img
+                    src="bili-store-logo.png"
+                    alt="Bili Store Logo"
+                    style="
+                        width:120px;
+                        height:120px;
+                        object-fit:contain;
+                        display:inline-block;
+                    ">
+
+            </div>
+
+
             <p class="small-heading">
+
                 WELCOME TO BILI STORE
+
             </p>
+
 
             <h1>
+
                 Things I Like.
+
                 <br>
-                <span>Things You'll Love.</span>
+
+                <span>
+                    Things You'll Love.
+                </span>
+
             </h1>
 
+
             <p class="hero-text">
+
                 A collection of things personally selected by Bili.
                 If I like it, it belongs here.
+
             </p>
 
-            <a href="#products" class="shop-button">
+
+            <a
+                href="#products"
+                class="shop-button">
 
                 Explore My Things
 
                 <i class="fa-solid fa-arrow-down"></i>
 
             </a>
+
 
         </div>
 
@@ -92,8 +136,7 @@
             <input
                 type="text"
                 id="searchInput"
-                placeholder="Search for a thing..."
-            >
+                placeholder="Search for a thing...">
 
         </div>
 
@@ -102,11 +145,15 @@
 
     <!-- ================= PRODUCTS ================= -->
 
-    <section class="products-section" id="products">
+    <section
+        class="products-section"
+        id="products">
 
         <div class="section-title">
 
-            <p>MY COLLECTION</p>
+            <p>
+                MY COLLECTION
+            </p>
 
             <h2>
                 Things I Like ❤️
@@ -118,9 +165,11 @@
 
         </div>
 
+
         <div
             id="productsGrid"
             class="products-grid">
+
         </div>
 
     </section>
@@ -128,9 +177,12 @@
 
     <!-- ================= PRODUCT MODAL ================= -->
 
-    <div id="productModal" class="modal">
+    <div
+        id="productModal"
+        class="modal">
 
         <div class="modal-content">
+
 
             <button
                 type="button"
@@ -147,8 +199,7 @@
                 <img
                     id="detailImage"
                     src=""
-                    alt="Product"
-                >
+                    alt="Product">
 
             </div>
 
@@ -169,10 +220,13 @@
                 </div>
 
 
-                <p id="detailDescription"></p>
+                <p
+                    class="detail-description"
+                    id="detailDescription">
+                </p>
 
 
-                <!-- ================= ORDER BOX ================= -->
+                <!-- ORDER BOX -->
 
                 <div class="order-box">
 
@@ -181,98 +235,87 @@
                     </h3>
 
                     <p>
-                        Contact me about this exact product.
-                        Product name and link will be included automatically.
+                        Contact Bili directly to order or ask anything.
                     </p>
 
 
-                    <!-- ================= CONTACT BUTTONS ================= -->
+                    <div class="order-buttons">
 
-                    <div class="contact-buttons">
-
-
-                        <!-- INSTAGRAM -->
-
-                        <button
-                            type="button"
-                            onclick="contactInstagram()"
-                            class="contact-btn instagram">
+                        <a
+                            id="instagramOrder"
+                            href="#"
+                            target="_blank"
+                            class="order-button instagram-order">
 
                             <i class="fa-brands fa-instagram"></i>
 
                             Instagram
 
-                        </button>
+                        </a>
 
 
-                        <!-- SNAPCHAT -->
-
-                        <button
-                            type="button"
-                            onclick="contactSnapchat()"
-                            class="contact-btn snapchat">
+                        <a
+                            id="snapchatOrder"
+                            href="#"
+                            target="_blank"
+                            class="order-button snapchat-order">
 
                             <i class="fa-brands fa-snapchat"></i>
 
                             Snapchat
 
-                        </button>
+                        </a>
 
 
-                        <!-- OUTLOOK -->
-
-                        <button
-                            type="button"
-                            onclick="contactEmail()"
-                            class="contact-btn outlook">
+                        <a
+                            id="emailOrder"
+                            href="#"
+                            class="order-button email-order">
 
                             <i class="fa-solid fa-envelope"></i>
 
                             Outlook
 
-                        </button>
-
-
-                        <!-- COPY LINK -->
-
-                        <button
-                            type="button"
-                            onclick="copyProductLink()"
-                            class="contact-btn copy">
-
-                            <i class="fa-solid fa-link"></i>
-
-                            Copy Product Link
-
-                        </button>
-
-
-                        <!-- DELETE PRODUCT -->
-
-                        <button
-                            type="button"
-                            onclick="deleteProduct(selectedProduct.id)"
-                            class="contact-btn delete-product">
-
-                            <i class="fa-solid fa-trash"></i>
-
-                            Delete Product
-
-                        </button>
-
+                        </a>
 
                     </div>
 
-
-                    <!-- COPY MESSAGE -->
-
-                    <p
-                        id="copyMessage"
-                        class="copy-message">
-                    </p>
-
-
                 </div>
+
+
+                <!-- COPY LINK -->
+
+                <button
+                    type="button"
+                    id="copyProductLink"
+                    class="copy-link">
+
+                    <i class="fa-solid fa-link"></i>
+
+                    Copy Product Link
+
+                </button>
+
+
+                <p
+                    id="copyMessage"
+                    class="copy-message">
+                </p>
+
+
+                <!-- DELETE PRODUCT -->
+
+                <button
+                    type="button"
+                    id="deleteProduct"
+                    class="delete-product">
+
+                    <i class="fa-solid fa-trash"></i>
+
+                    Delete Product
+
+                </button>
+
 
             </div>
 
@@ -283,9 +326,12 @@
 
     <!-- ================= ADD PRODUCT MODAL ================= -->
 
-    <div id="adminModal" class="modal">
+    <div
+        id="adminModal"
+        class="modal">
 
         <div class="admin-content">
+
 
             <button
                 type="button"
@@ -312,8 +358,6 @@
             </p>
 
 
-            <!-- ================= PRODUCT FORM ================= -->
-
             <form id="productForm">
 
 
@@ -327,8 +371,7 @@
                     type="text"
                     id="productName"
                     placeholder="Example: Classic Black Watch"
-                    required
-                >
+                    required>
 
 
                 <!-- PRICE -->
@@ -341,8 +384,7 @@
                     type="text"
                     id="productPrice"
                     placeholder="Example: Rs. 2,500"
-                    required
-                >
+                    required>
 
 
                 <!-- IMAGE -->
@@ -355,8 +397,7 @@
                     type="file"
                     id="productImage"
                     accept="image/png,image/jpeg,image/webp"
-                    required
-                >
+                    required>
 
 
                 <!-- IMAGE PREVIEW -->
@@ -372,8 +413,7 @@
                     <img
                         id="imagePreview"
                         src=""
-                        alt="Image Preview"
-                    >
+                        alt="Preview">
 
                 </div>
 
@@ -381,15 +421,14 @@
                 <!-- DESCRIPTION -->
 
                 <label for="productDescription">
-                    Product Characteristics
+                    Characteristics / Description
                 </label>
 
                 <textarea
                     id="productDescription"
                     rows="5"
                     placeholder="Write the things you like about this product..."
-                    required
-                ></textarea>
+                    required></textarea>
 
 
                 <!-- SUBMIT -->
@@ -417,6 +456,7 @@
     <section
         class="contact-section"
         id="contact">
+
 
         <div class="section-title">
 
